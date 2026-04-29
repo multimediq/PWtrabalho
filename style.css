@@ -1,0 +1,81 @@
+/* Configurações Globais */
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --text-light: #ecf0f1;
+    --bg-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Contentor de Pesquisa */
+.search-container {
+    margin: 40px 0;
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    width: 250px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Card de Clima Dinâmico (Glassmorphism) */
+.weather-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.weather-card h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.weather-card img {
+    width: 100px;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+}
+
+/* Animação para o card aparecer suavemente */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
