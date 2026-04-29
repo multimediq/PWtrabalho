@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Meteorológico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Previsão do Tempo</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="view-home">Início</a></li>
+                <li><a href="#" id="view-favoritos">Favoritos</a></li>
+                <li><a href="#" id="view-sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="app">
+        <section id="search-section">
+            <input type="text" id="city-input" placeholder="Digite uma cidade...">
+            <button id="search-btn">Pesquisar</button>
+        </section>
+
+        <section id="weather-display">
+            <p>Carregue numa cidade para ver o clima.</p>
+        </section>
+    </main>
+
+    <script src="api.js"></script>
+    <script src="dom.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
