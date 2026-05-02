@@ -1,3 +1,4 @@
+/* Importação de fonte moderna */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
@@ -28,6 +29,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+/* Container de Pesquisa */
 .search-container {
     margin: 50px 0 30px;
     background: var(--glass);
@@ -46,7 +48,7 @@ input {
     color: white;
     font-size: 1rem;
     outline: none;
-    width: 220px;
+    width: 200px;
 }
 
 button {
@@ -65,6 +67,7 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Card Principal (Clima Atual) */
 .weather-card {
     background: var(--glass);
     backdrop-filter: blur(15px);
@@ -73,7 +76,6 @@ button:hover {
     padding: 30px;
     text-align: center;
     width: 320px;
-    min-height: 450px; /* Garante que o sol aparece */
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     animation: slideUp 0.6s ease-out;
 }
@@ -87,7 +89,7 @@ button:hover {
     font-size: 4.5rem;
     font-weight: 600;
     display: block;
-    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+    margin: 10px 0;
 }
 
 .detalhes-grid {
@@ -99,16 +101,10 @@ button:hover {
     border-top: 1px solid var(--glass-border);
 }
 
-.dado {
-    font-size: 0.85rem;
-    text-align: left;
-}
-
-.dado b { color: var(--accent); }
-
+/* Previsão de 5 Dias */
 #forecast-container {
     margin-top: 40px;
-    width: 90%;
+    width: 100%;
     max-width: 600px;
     text-align: center;
 }
@@ -122,15 +118,23 @@ button:hover {
 
 .mini-card {
     background: var(--glass);
-    padding: 15px 5px;
+    padding: 15px 10px;
     border-radius: 15px;
     border: 1px solid var(--glass-border);
+    font-size: 0.85rem;
     transition: 0.3s;
 }
 
-.mini-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.2); }
+.mini-card:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-5px);
+}
 
+.mini-card img { width: 45px; }
+.mini-card p { margin: 5px 0; font-weight: 600; text-transform: uppercase; }
+
+/* Responsividade */
 @media (max-width: 600px) {
     .forecast-grid { grid-template-columns: repeat(3, 1fr); }
-    .weather-card { width: 85%; }
+    .search-container { width: 80%; }
 }
