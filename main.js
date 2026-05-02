@@ -1,18 +1,32 @@
-// Requisito: Interação através de eventos (6 eventos obrigatórios)
-document.getElementById('search-btn').addEventListener('click', async () => {
-    const cidade = document.getElementById('city-input').value;
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('search-btn');
+    const input = document.getElementById('city-input');
 
-    if (cidade) {
-        // Chamada à função que criaste no api.js
-        const dados = await getWeatherData(cidade); 
+    const buscar = async () => {
+        const cidade = input.value.trim();
+        if (!cidade) return;
+
+        // Feedback visual simples
+        btn.innerText = "A carregar...";
         
-        if (dados) {
-            // Esta função vai estar no teu dom.js
-            mostrarClima(dados); 
+        const clima = await getWeatherData(cidade);
+        const previsao = await getForecastData(cidade);
+
+        if (clima && previsao) {
+            renderizarClima(clima);
+            renderizarPrevisao(previsao);
+            input.value = ""; // Limpa o campo
         } else {
-            alert("Não encontrei essa cidade. Tenta outra!");
+            alert("Cidade não encontrada. Tenta novamente!");
         }
-    } else {
-        alert("Escreve o nome de uma cidade primeiro!");
-    }
+        
+        btn.innerText = "Pesquisar";
+        input.focus();
+    };
+
+    btn.addEventListener('click', buscar);
+    input.addEventListener('keypress', (e) => { if(e.key === 'Enter') buscar(); });
+    
+    // Focar no input ao abrir a página
+    input.focus();
 });
